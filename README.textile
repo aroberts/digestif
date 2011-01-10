@@ -14,7 +14,9 @@ but right now I'm going to settle for guessing at where "good enough for me"
 might lie.
 
 h2. Installation TODO
+
 h2. Usage TODO
+
 h2. Motivation
 
 I wrote digestif to solve a problem for a media catalogue I was working on.
