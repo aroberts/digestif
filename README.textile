@@ -1,0 +1,30 @@
+h1. Digestif
+
+An aid for creating hash digests of large files
+
+h2. Synopsis TODO
+
+Digestif lets you create fast checksums of large files by 
+skipping sections of the file.  It was created with compressed media 
+files in mind, which generally have such a high information density
+that we can get away with a checksum that doesn't actually consider all
+the bits.  Someday I'd like to understand the likelyhood-of-collision
+implications for specific compression algorithms (mp3, h.264, xvid, et al.),
+but right now I'm going to settle for guessing at where "good enough for me"
+might lie.
+
+h2. Installation TODO
+h2. Usage TODO
+h2. Motivation
+
+I wrote digestif to solve a problem for a media catalogue I was working on.
+I wanted a filename-independent way to evaluate whether or not a file was in
+the catalogue yet, but the files were so large that streaming the whole file
+off of the hard drive was too slow for the response time I was hoping for.
+(Interested parties, I was getting 5 gigs hashed using md5 in about 2.4
+minutes.) 
+
+h2. Author
+
+Copyright 2011 Andrew Roberts
+  
