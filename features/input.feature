@@ -6,18 +6,18 @@ Feature: Application input handling
   Scenario: program invoked with bad options
     When I run "digestif --campari"
     Then the output should not contain a stack trace
-    And the output should contain an error message
+    And there should be an error message
     And the exit status should not be 0
 
     When I run "digestif -d campari"
     Then the output should not contain a stack trace
-    And the output should contain an error message
+    And there should be an error message
     And the exit status should not be 0
 
   Scenario: Program invoked on nonexistent file
     When I run "digestif nonexistent_file"
     Then the output should not contain a stack trace
-    And the output should contain an error message
+    And there should be an error message
     And the exit status should not be 0
 
   Scenario: Program invoked on existent and nonexistent files, together
@@ -26,7 +26,7 @@ Feature: Application input handling
     test data inside
     """
     When I run "digestif test_file test_file_2"
-    Then the output should contain an error message
+    Then there should be an error message
     And the output should not contain a stack trace
     And the output should not contain a digest
 

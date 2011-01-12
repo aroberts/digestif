@@ -14,13 +14,10 @@ module Digestif
     def digest
       hasher = Digest.const_get(options.digest.to_s.upcase).new
 
-      seek_size = 4
-      read_size = 7
-
       File.open(filename, 'rb') do |f|
         until f.eof
-          hasher.update(f.read(read_size))
-          f.seek(seek_size, IO::SEEK_CUR)
+          hasher.update(f.read(options.read_size))
+          f.seek(options.seek_size, IO::SEEK_CUR)
         end
       end
       hasher.hexdigest
