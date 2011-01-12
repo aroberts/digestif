@@ -2,7 +2,7 @@ h1. Digestif
 
 An aid for creating hash digests of large files
 
-h2. Synopsis TODO
+h2. Synopsis
 
 Digestif lets you create fast checksums of large files by 
 skipping sections of the file.  It was created with compressed media 
@@ -13,9 +13,35 @@ implications for specific compression algorithms (mp3, h.264, xvid, et al.),
 but right now I'm going to settle for guessing at where "good enough for me"
 might lie.
 
+One side-effect of this approach is that the error-corrective nature of
+digests is, of course, lost.  This is really more of an inescapable artifact
+of the problem we're trying to solve.  To create a hash of a really large
+file, the biggest bottleneck with modern computers is streaming
+5-10 gigs off of the disk.  The actual checksumming is not hard.
+By looking at less data, we speed up the hash process immensely, and
+we incur the cost of vulnerability of file corruption.  Because the
+purpose I have in mind for this tool is identity checking, not
+corruption detection, this issue is not a problem for me.
+
 h2. Installation TODO
 
-h2. Usage TODO
+h2. Usage
+
+Just like md5 on the command line, but it only works on files, not on
+streaming data (can't seek a stream).
+
+<pre>
+digestif some_large_file
+</pre>
+
+Since this program is designed to get around file limitations specifically, it
+didn't make sense for me to invest in making streams work.
+
+For a detailed look at the options, see
+
+<pre>
+digestif --help
+</pre>
 
 h2. Motivation
 
@@ -29,4 +55,4 @@ minutes.)
 h2. Author
 
 Copyright 2011 Andrew Roberts
-  
+
