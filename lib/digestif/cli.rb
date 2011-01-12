@@ -66,12 +66,12 @@ module Digestif
         p.separator "Common options:"
         p.separator ""
 
-        p.on_tail("-v", "--version", "Show this message") do
+        p.on_tail("-v", "--version", "Show version") do
           puts Digestif.version_string
           exit 0
         end
 
-        p.on_tail("-h", "--help", "Show this message") do
+        p.on_tail("-h", "--help", "This is it") do
           puts p
           exit 0
         end
