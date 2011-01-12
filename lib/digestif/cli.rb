@@ -34,6 +34,8 @@ module Digestif
       # defaults
       options = OpenStruct.new
       options.digest = :sha1
+      options.seek_size = 1024
+      options.read_size = 512
 
       parser = OptionParser.new do |p|
         p.banner = "Usage: digestif [options] filename"
@@ -47,6 +49,22 @@ module Digestif
              "  md5", "  sha1", ' ') do |digest|
           options.digest = digest
              end
+
+        p.on("-r", "--read-size SIZE", Integer,
+             "Size of chunk to read, in bytes " +
+             "(#{options.read_size})") do |size|
+          options.read_size = size
+             end
+
+        p.on("-s", "--seek-size SIZE", Integer,
+             "Size of chunk to skip after each read, in bytes " + 
+             "(#{options.seek_size})") do |size|
+          options.seek_size = size
+             end
+
+        p.separator ""
+        p.separator "Common options:"
+        p.separator ""
 
         p.on_tail("-v", "--version", "Show this message") do
           puts Digestif.version_string
