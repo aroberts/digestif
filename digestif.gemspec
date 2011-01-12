@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
         large files by skipping sections of the file.  It was created 
         with compressed media files in mind, which generally have such
         a high information density that we can get away with a checksum
-        that doesn't actually consider all the bits}
+        that doesn't actually consider all the bits.}
 
     s.files        = Dir['[A-Z]*', 'lib/**/*.rb', 'features/**/*', 'bin/**/*']
     s.require_path = 'lib'
