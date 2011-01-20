@@ -9,6 +9,14 @@ module Digestif
       new(args).run
     end
 
+    def self.default_options
+      options = OpenStruct.new
+      options.digest = :sha1
+      options.seek_size = 1024
+      options.read_size = 512
+      options
+    end
+
     attr_accessor :args, :options
 
     def initialize(args)
@@ -31,11 +39,7 @@ module Digestif
     end
 
     def parse_options
-      # defaults
-      options = OpenStruct.new
-      options.digest = :sha1
-      options.seek_size = 1024
-      options.read_size = 512
+      options = CLI.default_options
 
       parser = OptionParser.new do |p|
         p.banner = "Usage: digestif [options] filename"
@@ -46,7 +50,8 @@ module Digestif
 
         p.on("-d", "--digest DIGEST", [:md5, :sha1],
              "Digest algorithm to use.  Currently supported:",
-             "  md5", "  sha1", ' ') do |digest|
+             "  md5", "  sha1",
+             "(default #{options.digest.to_s})", ' ') do |digest|
           options.digest = digest
              end
 
