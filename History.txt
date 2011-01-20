@@ -1,0 +1,10 @@
+=== Version 1.0.3
+
+* Improved the usability of digestif as a library
+  * Access to default options
+
+=== Version 1.0.0
+
+ First release
+
+* Basic functionality of sparse hashing is functional
