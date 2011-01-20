@@ -2,7 +2,6 @@ lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 require 'digestif/version'
 
-
 Gem::Specification.new do |s|
     s.name        = %q{digestif}
     s.version     = Digestif.version
