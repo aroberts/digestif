@@ -6,7 +6,7 @@ module Digestif
 
     attr_accessor :options, :filename
 
-    def initialize(filename, options)
+    def initialize(filename, options = CLI.default_options)
       self.filename = filename
       self.options = options
     end
