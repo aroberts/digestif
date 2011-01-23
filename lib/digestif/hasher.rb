@@ -1,6 +1,8 @@
 require 'digest/sha1'
 require 'digest/md5'
 
+require 'digestif/cli'
+
 module Digestif
   class Hasher
 

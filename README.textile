@@ -23,7 +23,11 @@ we incur the cost of vulnerability of file corruption.  Because the
 purpose I have in mind for this tool is identity checking, not
 corruption detection, this issue is not a problem for me.
 
-h2. Installation TODO
+h2. Installation
+
+<pre>
+gem install digestif
+</pre>
 
 h2. Usage
 
