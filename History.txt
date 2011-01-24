@@ -1,3 +1,11 @@
+=== Version 1.0.5
+
+* Added --print-sample-count option
+
+=== Version 1.0.4
+
+* Library bugfixes
+
 === Version 1.0.3
 
 * Improved the usability of digestif as a library

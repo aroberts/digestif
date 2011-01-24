@@ -55,6 +55,12 @@ module Digestif
           options.digest = digest
              end
 
+        p.on("--print-sample-count",
+              "outputs the number of samples used to create the hash") do
+          options.print_sample_count = true
+              end
+
+
         p.on("-r", "--read-size SIZE", Integer,
              "Size of chunk to read, in bytes " +
              "(#{options.read_size})") do |size|
@@ -66,10 +72,6 @@ module Digestif
              "(#{options.seek_size})") do |size|
           options.seek_size = size
              end
-
-        p.separator ""
-        p.separator "Common options:"
-        p.separator ""
 
         p.on_tail("-v", "--version", "Show version") do
           puts Digestif.version_string

@@ -15,12 +15,17 @@ module Digestif
 
     def digest
       hasher = Digest.const_get(options.digest.to_s.upcase).new
+      sample_count = 0
 
       File.open(filename, 'rb') do |f|
         until f.eof
           hasher.update(f.read(options.read_size))
           f.seek(options.seek_size, IO::SEEK_CUR)
+          sample_count += 1
         end
+      end
+      if options.print_sample_count
+        puts "#{filename}\t#{File.size(filename)}b\t#{sample_count} samples"
       end
       hasher.hexdigest
     end

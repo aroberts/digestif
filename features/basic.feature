@@ -20,3 +20,7 @@ Feature: Basic application operation
   Scenario: Hashing 2 files
     When I run "digestif -d sha1 test_file test_file_2"
     Then the output should be 2 digests 
+
+  Scenario: Getting the sample count
+    When I run "digestif --print-sample-count test_file"
+    Then the output should contain "samples"
